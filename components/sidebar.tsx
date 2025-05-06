@@ -53,23 +53,22 @@ export default function Sidebar() {
       <div className="flex-1 overflow-y-auto">
         <div className="p-2 text-sm text-gray-400">Premium Services</div>
 
-        <NavItem icon={<Ticket />} label="Subscriptions" href="/subscriptions" active={pathname === "/subscriptions"} />
+        <NavItem label="Subscriptions" href="/subscriptions" active={pathname === "/subscriptions"} />
         <NavItem 
-          icon={<CircleDollarSign />} 
           label="SmartTag" 
-          isNew 
+          isPro
           href={hasExclusivePlan ? "/smart-tag-dashboard" : "#"}
           onClick={!hasExclusivePlan ? handleSmartTagClick : undefined}
           active={pathname === "/smart-tag-dashboard"}
         />
-        <NavItem icon={<Shield />} label="Role Composition" isNew href="#" />
+        <NavItem label="Role Composition" isPro href="#" />
 
         <div className="p-2 text-sm text-gray-400">Collab.Land Core</div>
 
-        <NavItem icon={<Bot />} label="Bot Config" href="#" />
-        <NavItem icon={<Zap />} label="Miniapps" href="/" active={pathname === "/" || pathname === "/miniapps"} />
-        <NavItem icon={<Shield />} label="Role Troubleshooting" href="#" />
-        <NavItem icon={<MessageSquare />} label="Token Gating Rules (TGRs)" href="#" />
+        <NavItem label="Bot Config" href="#" />
+        <NavItem label="Miniapps" href="/" active={pathname === "/" || pathname === "/miniapps"} />
+        <NavItem label="Role Troubleshooting" href="#" />
+        <NavItem label="Token Gating Rules (TGRs)" href="#" />
       </div>
 
       {/* Bottom buttons */}
@@ -107,23 +106,25 @@ export default function Sidebar() {
 }
 
 interface NavItemProps {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   label: string;
   active?: boolean;
-  isNew?: boolean;
+  isPro?: boolean;
   href?: string;
   onClick?: (e: React.MouseEvent) => void;
 }
 
-function NavItem({ icon, label, active = false, isNew = false, href = "#", onClick }: NavItemProps) {
+function NavItem({ icon, label, active = false, isPro = false, href = "#", onClick }: NavItemProps) {
   return (
     <Link href={href} className="block" onClick={onClick}>
       <div
         className={`flex items-center gap-3 px-2 py-2 mx-2 rounded ${active ? "bg-[#393c41]" : "hover:bg-[#35373c]"}`}
       >
-        <div className="text-gray-300">{icon}</div>
+        {icon && <div className="text-gray-300">{icon}</div>}
         <div className="text-gray-300">{label}</div>
-        {isNew && <div className="ml-auto bg-[#f8d568] text-black text-xs px-1 rounded">NEW</div>}
+        {isPro && (
+          <div className="ml-2 bg-[#f8d568] text-black text-xs px-2 py-0.5 rounded-full font-semibold" style={{fontSize: '0.85em'}}>Pro</div>
+        )}
       </div>
     </Link>
   )

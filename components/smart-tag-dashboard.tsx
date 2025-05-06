@@ -255,10 +255,10 @@ export default function SmartTagDashboard() {
           {/* Description */}
           <div className="text-gray-300 space-y-4 mb-8">
             <p>
-              SmartTag is Collab.Land's onchain transaction solution for communities on Discord. It allows members to send, receive, and manage tokens directly in chat by simply tagging usernames - no need to know wallet addresses. Powered by smart accounts, SmartTag makes blockchain interactions smooth, secure, and user-friendly, all done within Discord.
+              SmartTag is Collab.Land's onchain transaction solution. It allows members to send, receive, and manage tokens directly in chat by simply tagging usernames - no need to know wallet addresses. Powered by smart accounts, SmartTag makes blockchain interactions smooth, secure, and user-friendly, all done within Discord.
             </p>
             <p>
-              Admins with the TagMaster role can earn 2% of transaction fees by entering a wallet address that can receive tokens in the selected chain, and Exclusive communities enjoy 100 gas-sponsored transactions per month. SmartTag supports multiple chains and tokens, making it a flexible tool for community rewards, event prizes, payments, and more.
+              Admins with the TagMaster role can earn 2% of their community's transaction fees by entering a wallet address that can receive tokens in the configured chain. Communities subscribed to the Exclusive plan enjoy 100 gas-sponsored transactions per month. SmartTag supports multiple chains and tokens, making it a flexible tool for community rewards, event prizes, payments, and more.
             </p>
           </div>
 
@@ -320,7 +320,7 @@ export default function SmartTagDashboard() {
               <div className="relative group">
                 <Info size={16} className="text-gray-400 cursor-help" />
                 <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-96 p-2 bg-black text-white text-sm rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                  Enter a wallet address to receive 2% of all transaction fees. The wallet must be able to receive tokens on the selected chain.
+                  Enter a wallet address to receive 2% of this community's transaction fees. The wallet must be able to receive tokens on the configured chain for this community.
                 </div>
               </div>
               <span className="text-white text-lg font-semibold">:</span>
@@ -356,28 +356,30 @@ export default function SmartTagDashboard() {
 
             {/* Configuration History */}
             <div className="max-w-5xl mt-8">
-              <h3 className="text-white text-sm font-semibold mb-2">Wallet Configuration History</h3>
-              <div className="bg-[#2b2d31] rounded-md overflow-hidden border border-[#f8d568]/30">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="bg-[#1e1f22] text-gray-300">
-                      <th className="py-2 px-4 text-left font-medium w-32">Username</th>
-                      <th className="py-2 px-4 text-left font-medium w-44">Discord ID</th>
-                      <th className="py-2 px-4 text-left font-medium">Wallet</th>
-                      <th className="py-2 px-4 text-left font-medium w-44">Date & Time</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-gray-300">
-                    {currentItems.map((entry, index) => (
-                      <tr key={index} className="border-t border-[#1e1f22]">
-                        <td className="py-2 px-4">{entry.username}</td>
-                        <td className="py-2 px-4">{entry.discordId}</td>
-                        <td className="py-2 px-4">{entry.wallet}</td>
-                        <td className="py-2 px-4">{entry.timestamp}</td>
+              <h3 className="text-white text-sm font-semibold mb-2">Recipient Wallet Change Log</h3>
+              <div className="bg-[#2b2d31] rounded-md overflow-hidden border border-[#f8d568]/30 min-h-[300px] flex flex-col" style={{ minHeight: '300px', height: '300px' }}>
+                <div className="flex-1 overflow-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-[#1e1f22] text-gray-300">
+                        <th className="py-2 px-4 text-left font-medium w-32">Username</th>
+                        <th className="py-2 px-4 text-left font-medium w-44">Discord ID</th>
+                        <th className="py-2 px-4 text-left font-medium">Wallet</th>
+                        <th className="py-2 px-4 text-left font-medium w-44">Date & Time</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="text-gray-300">
+                      {currentItems.map((entry, index) => (
+                        <tr key={index} className="border-t border-[#1e1f22]">
+                          <td className="py-2 px-4">{entry.username}</td>
+                          <td className="py-2 px-4">{entry.discordId}</td>
+                          <td className="py-2 px-4">{entry.wallet}</td>
+                          <td className="py-2 px-4">{entry.timestamp}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
                 {/* Pagination Controls */}
                 <div className="flex justify-between items-center px-4 py-3 border-t border-[#1e1f22]">
                   <div className="text-gray-300 text-sm">

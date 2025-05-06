@@ -94,11 +94,12 @@ export default function SmartTagContent() {
       <div className="space-y-8">
         <section>
           <h2 className="text-white text-xl font-bold mb-4">About this app</h2>
+          <p className="text-gray-300 mb-4">Available for Exclusive plan subscribers only. See all features included in our Exclusive plan <a href="/subscriptions" className="text-[#f8d568] hover:underline">here</a>.</p>
           
           <div className="mb-6">
             <h3 className="text-white mb-2">Innovations:</h3>
             <ul className="text-gray-300 space-y-2">
-              <li>• Smart Accounts for Everyone: Easy onboarding with smart accounts for all members. No private keys needed - All done within Discord.</li>
+              <li>• Smart Accounts for Everyone: We create a Smart Account for each member — no external wallets or private keys needed. It all works through Discord.</li>
               <li>• Transparent Transactions: Efficient and secure onchain transactions.</li>
               <li>• Integrated Fees: Use the tipping token to cover fees. No 2nd gas token needed.</li>
             </ul>

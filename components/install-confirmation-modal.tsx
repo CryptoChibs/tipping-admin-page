@@ -23,7 +23,7 @@ export default function InstallConfirmationModal({
         <h2 className="text-white text-xl font-semibold mb-4">Install {appName}?</h2>
         <div className="text-gray-300 space-y-3 mb-6">
           <p>Installing this miniapp will automatically create a TagMaster role and assign it to you.</p>
-          <p>TagMasters can enter a wallet address to receive 2% of all SmartTag transaction fees.</p>
+          <p>TagMasters can enter a wallet address to receive 2% of this community's transaction fees.</p>
           <p>You can assign the TagMaster role to other admins in Discord anytime.</p>
         </div>
         <div className="flex gap-3 justify-end">

@@ -25,7 +25,7 @@ export default function Subscriptions() {
   return (
     <div className="flex h-screen bg-[#1e1f22]">
       <Sidebar />
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col mr-12">
         {/* Top Banner */}
         <div className="bg-[#f8d568] text-black py-2 px-4 flex justify-center items-center">
           <div className="flex-1 text-center">
@@ -61,11 +61,21 @@ export default function Subscriptions() {
             We're proud to introduce five custom tiers of Collab.Land service tailored to the needs of our Discord communities. Each tier offers unique features — ones you've all been requesting — such as PRO miniapps, on-demand balance checks, advanced bot and messaging customization, and more.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mr-4">
             {/* Starter Card */}
-            <div className="bg-[#2b2d31] rounded-lg overflow-hidden relative flex flex-col h-full">
-              <div className="absolute -right-8 -top-8 bg-[#3ba55c] text-white text-xs px-12 py-1 rotate-45">
-                FREE
+            <div className="bg-[#2b2d31] rounded-lg overflow-hidden relative flex flex-col h-full border-2 border-[#3ba55c] border-t-4 max-w-sm" style={{ borderTopColor: '#3ba55c' }}>
+              <div className="absolute top-0 right-0 w-full flex justify-end pointer-events-none" style={{ height: '2.5rem' }}>
+                <div
+                  className="relative"
+                  style={{
+                    width: '8rem',
+                    height: '2.5rem',
+                    background: '#3ba55c',
+                    clipPath: 'polygon(100% 0, 0 0, 100% 100%)'
+                  }}
+                >
+                  <span className="absolute right-2 top-1 text-xs font-bold text-black tracking-wider">FREE</span>
+                </div>
               </div>
               <div className="p-4 flex-1">
                 <h2 className="text-xl font-bold text-white mb-4">Starter</h2>
@@ -74,63 +84,87 @@ export default function Subscriptions() {
                     ACTIVE
                   </div>
                 )}
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Up to 4 TGRs</span>
+                <ul className="space-y-3 text-gray-300 mb-6 items-start">
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Up to 4 TGRs</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Unlimited members</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Unlimited members</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Balance checks every week</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Balance checks every week</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Standard Support</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Standard Support</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Multi-wallet verification</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Multi-wallet verification</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>38 blockchains*</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">38 blockchains*</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>28 wallets, Delegate, OpenSea + WalletConnect*</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">28 wallets, Delegate, OpenSea + WalletConnect*</span>
                   </li>
                 </ul>
               </div>
             </div>
 
             {/* Basic Card */}
-            <div className="bg-[#2b2d31] rounded-lg overflow-hidden flex flex-col h-full">
+            <div className="bg-[#2b2d31] rounded-lg overflow-hidden flex flex-col h-full border-2 border-purple-300 border-t-4 max-w-sm" style={{ borderTopColor: '#d6b4fc' }}>
               <div className="p-4 flex-1">
                 <h2 className="text-xl font-bold text-white mb-4">Basic</h2>
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Up to 10 TGRs</span>
+                <ul className="space-y-3 text-gray-300 mb-6 items-start">
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Up to 10 TGRs</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Balance checks every 24 hours</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Balance checks every 24 hours</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Priority Support</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Priority Support</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Opt-out feature for donate</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Opt-out feature for donate</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Plus all features from STARTER</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Plus all features from STARTER</span>
                   </li>
                 </ul>
               </div>
@@ -145,25 +179,44 @@ export default function Subscriptions() {
             </div>
 
             {/* Premium Card */}
-            <div className="bg-[#2b2d31] rounded-lg overflow-hidden p-4 border border-[#f8d568] flex flex-col h-full">
+            <div className="bg-[#2b2d31] rounded-lg overflow-hidden p-4 border-2 border-[#f8d568] border-t-4 flex flex-col h-full max-w-sm" style={{ borderTopColor: '#f8d568' }}>
               <div className="flex-1">
                 <h2 className="text-xl font-bold text-white mb-4">Premium</h2>
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Up to 50 TGRs</span>
+                <ul className="space-y-3 text-gray-300 mb-6 items-start">
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Up to 50 TGRs</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>PRO miniapps including Role Composition (And/Or) and POAP</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">PRO miniapps including Role Composition (And/Or) and POAP</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Opt-out feature for community messages</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Opt-out feature for community messages</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Plus all features from STARTER + BASIC</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">
+                      EVM Event Listener: Removes<br />
+                      roles in real-time when a token<br />
+                      is transferred (Ethereum<br />
+                      Mainnet) <span className="inline-block align-middle bg-[#f8d568] text-black text-xs font-bold px-2 py-0.5 rounded ml-2">NEW</span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Plus all features from STARTER + BASIC</span>
                   </li>
                 </ul>
               </div>
@@ -178,37 +231,69 @@ export default function Subscriptions() {
             </div>
 
             {/* Exclusive Card */}
-            <div className="bg-[#2b2d31] rounded-lg overflow-hidden relative flex flex-col h-full">
-              <div className="absolute -right-8 -top-8 bg-[#5865f2] text-white text-xs px-12 py-1 rotate-45">
-                POPULAR
+            <div className="bg-[#2b2d31] rounded-lg overflow-hidden relative flex flex-col h-full border-2 border-[#5865f2] border-t-4 max-w-sm" style={{ borderTopColor: '#5865f2' }}>
+              <div className="absolute top-0 right-0 w-full flex justify-end pointer-events-none" style={{ height: '2.5rem' }}>
+                <div
+                  className="relative"
+                  style={{
+                    width: '8rem',
+                    height: '2.5rem',
+                    background: '#5865f2',
+                    clipPath: 'polygon(100% 0, 0 0, 100% 100%)'
+                  }}
+                >
+                  <span className="absolute right-2 top-1 text-xs font-bold text-black tracking-wider">PICK ME</span>
+                </div>
               </div>
               <div className="p-4 flex-1">
                 <h2 className="text-xl font-bold text-white mb-4">Exclusive</h2>
                 {activeSubscription === 'exclusive' && (
-                  <div className="bg-[#5865f2] text-white text-sm px-2 py-1 rounded inline-block mb-4">
+                  <div className="w-full bg-[#bcd2f7] text-[#222] text-sm font-bold text-center py-2 mb-6 tracking-wider uppercase">
                     ACTIVE
                   </div>
                 )}
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Up to 150 TGRs</span>
+                <ul className="space-y-3 text-gray-300 mb-6 items-start">
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Up to 150 TGRs</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>5 bonus "admin-initiated" balance checks monthly</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">5 bonus "admin-initiated" balance checks monthly</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Dedicated support human</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Dedicated support human</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Customize your Discord verification channel's Let's Go! message</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Customize your Discord verification channel's Let's Go! message</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Plus all features from STARTER + BASIC + PREMIUM included</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Solana Event Listener: Removes roles in real-time when a token is transferred <span className="ml-2 bg-[#f8d568] text-black text-xs font-bold px-2 py-0.5 rounded">NEW</span></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">SmartTag: Send onchain transactions directly in your community <span className="ml-2 bg-[#f8d568] text-black text-xs font-bold px-2 py-0.5 rounded">NEW</span></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Plus all features from STARTER + BASIC + PREMIUM included</span>
                   </li>
                 </ul>
               </div>
@@ -235,33 +320,45 @@ export default function Subscriptions() {
             </div>
 
             {/* Enterprise Card */}
-            <div className="bg-[#2b2d31] rounded-lg overflow-hidden flex flex-col h-full">
+            <div className="bg-[#2b2d31] rounded-lg overflow-hidden flex flex-col h-full border-2 border-indigo-300 border-t-4 max-w-sm" style={{ borderTopColor: '#a5b4fc' }}>
               <div className="p-4 flex-1">
                 <h2 className="text-xl font-bold text-white mb-4">Enterprise</h2>
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Unlimited TGRs</span>
+                <ul className="space-y-3 text-gray-300 mb-6 items-start">
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Unlimited TGRs</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>White label</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">White label</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Change the bot's username</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Change the bot's username</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Change logo</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Change logo</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>Personalized features on demand</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">Personalized features on demand</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check size={16} className="text-[#3ba55c]" />
-                    <span>PLUS all features from Exclusive included</span>
+                  <li className="flex items-start gap-2">
+                    <span className="w-7 flex justify-center mt-1">
+                      <Check size={20} className="text-green-200" />
+                    </span>
+                    <span className="flex-1">PLUS all features from Exclusive included</span>
                   </li>
                 </ul>
               </div>
