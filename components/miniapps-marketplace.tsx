@@ -21,11 +21,21 @@ export default function MiniappsMarketplace() {
     return localStorage.getItem('smartTagInstalled') === 'true'
   })
   const [showInstallModal, setShowInstallModal] = useState(false)
+  const [showUninstallModal, setShowUninstallModal] = useState(false)
 
   // Update showSmartTagDetails when URL changes
   useEffect(() => {
     setShowSmartTagDetails(searchParams.get('showSmartTagDetails') === 'true')
   }, [searchParams])
+
+  // Listen for uninstall events from other components
+  useEffect(() => {
+    const handleUninstall = () => {
+      setIsInstalled(false)
+    }
+    window.addEventListener('smartTagUninstalled', handleUninstall)
+    return () => window.removeEventListener('smartTagUninstalled', handleUninstall)
+  }, [])
 
   // Handle Exclusive subscription
   const handleExclusiveSubscribe = () => {
@@ -48,8 +58,13 @@ export default function MiniappsMarketplace() {
   }
 
   const handleUninstall = () => {
+    setShowUninstallModal(true)
+  }
+
+  const handleConfirmUninstall = () => {
     localStorage.removeItem('smartTagInstalled')
     setIsInstalled(false)
+    setShowUninstallModal(false)
   }
 
   return (
@@ -59,6 +74,13 @@ export default function MiniappsMarketplace() {
         onClose={() => setShowInstallModal(false)}
         onConfirm={handleConfirmInstall}
         appName="SmartTag"
+      />
+      <InstallConfirmationModal
+        isOpen={showUninstallModal}
+        onClose={() => setShowUninstallModal(false)}
+        onConfirm={handleConfirmUninstall}
+        appName="SmartTag"
+        mode="uninstall"
       />
       <Sidebar />
       <div className="flex-1 flex flex-col">

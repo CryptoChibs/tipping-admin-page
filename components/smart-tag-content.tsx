@@ -10,6 +10,7 @@ export default function SmartTagContent() {
   const [hasExclusivePlan, setHasExclusivePlan] = useState(false)
   const [isInstalled, setIsInstalled] = useState(false)
   const [showInstallModal, setShowInstallModal] = useState(false)
+  const [showUninstallModal, setShowUninstallModal] = useState(false)
 
   useEffect(() => {
     setHasExclusivePlan(localStorage.getItem('hasExclusivePlan') === 'true')
@@ -29,8 +30,15 @@ export default function SmartTagContent() {
   }
 
   const handleUninstall = () => {
+    setShowUninstallModal(true)
+  }
+
+  const handleConfirmUninstall = () => {
     localStorage.removeItem('smartTagInstalled')
     setIsInstalled(false)
+    setShowUninstallModal(false)
+    // Dispatch custom event to sync state
+    window.dispatchEvent(new CustomEvent('smartTagUninstalled'))
   }
 
   return (
@@ -40,6 +48,13 @@ export default function SmartTagContent() {
         onClose={() => setShowInstallModal(false)}
         onConfirm={handleConfirmInstall}
         appName="SmartTag"
+      />
+      <InstallConfirmationModal
+        isOpen={showUninstallModal}
+        onClose={() => setShowUninstallModal(false)}
+        onConfirm={handleConfirmUninstall}
+        appName="SmartTag"
+        mode="uninstall"
       />
       
       <div className="flex items-center gap-3 mb-4">
