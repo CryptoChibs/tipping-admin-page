@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 interface InstallConfirmationModalProps {
   isOpen: boolean
@@ -47,6 +47,13 @@ export default function InstallConfirmationModal({
 }: InstallConfirmationModalProps) {
   const [currentStep, setCurrentStep] = useState(0)
 
+  // Reset step when modal is closed
+  useEffect(() => {
+    if (!isOpen) {
+      setCurrentStep(0)
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
   const isLastStep = mode === 'uninstall' ? true : currentStep === installSteps.length - 1
@@ -70,6 +77,19 @@ export default function InstallConfirmationModal({
         <h2 className="text-white text-xl font-semibold mb-4 text-center">
           {steps[currentStep].title}
         </h2>
+        {mode === 'install' && (
+          <div className="mb-6">
+            <div className="text-sm text-gray-400 mb-2">
+              Step {currentStep + 1} of {installSteps.length}
+            </div>
+            <div className="w-full h-2 bg-[#393c41] rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-[#f8d568] transition-all duration-300 ease-in-out"
+                style={{ width: `${((currentStep + 1) / installSteps.length) * 100}%` }}
+              />
+            </div>
+          </div>
+        )}
         <div className="text-gray-300 space-y-3 mb-6">
           <p>{steps[currentStep].content}</p>
         </div>

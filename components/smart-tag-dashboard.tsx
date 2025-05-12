@@ -271,7 +271,7 @@ export default function SmartTagDashboard() {
                   <div className="relative group">
                     <Info size={16} className="text-gray-400 cursor-help" />
                     <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-80 p-2 bg-black text-white text-sm rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                      Select a chain to enable sending tokens on that network within your server. You can only select 1 chain at a time.
+                      Select a chain to enable sending tokens on that network within your server. You can only select 1 chain at a time. Multiple chain selection coming soon!
                     </div>
                   </div>
                   <span className="text-white text-lg font-semibold">:</span>
